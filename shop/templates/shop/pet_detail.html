@@ -1,0 +1,15 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<div class="pet-detail">
+  <h2>{{ pet.name }}</h2>
+  {% if pet.image_url %}<img src="{{ pet.image_url }}" alt="{{ pet.name }}">{% endif %}
+  <p><strong>Species:</strong> {{ pet.species }}</p>
+  <p><strong>Age:</strong> {{ pet.age }}</p>
+  <p><strong>Price:</strong> ₹ {{ pet.price }}</p>
+  <p>{{ pet.description }}</p>
+  <p>
+    <a class="btn" href="{% url 'shop:add_to_cart' pet.id %}">Add to cart</a>
+    <a href="{% url 'shop:home' %}">Back</a>
+  </p>
+</div>
+{% endblock %}

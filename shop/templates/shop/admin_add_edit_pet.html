@@ -1,0 +1,9 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<h2>{% if pet %}Edit{% else %}Add{% endif %} Pet</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn" type="submit">Save</button>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<h2>All Orders</h2>
+<table class="admin-table">
+  <thead><tr><th>ID</th><th>User</th><th>Total</th><th>Paid</th><th>Date</th><th>Items</th></tr></thead>
+  <tbody>
+    {% for order in orders %}
+      <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.user.username }}</td>
+        <td>₹ {{ order.total }}</td>
+        <td>{{ order.paid }}</td>
+        <td>{{ order.created_at }}</td>
+        <td><pre>{{ order.items_snapshot }}</pre></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

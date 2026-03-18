@@ -1,0 +1,12 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<h2>Order #{{ order.id }} placed</h2>
+<p>Thank you, {{ order.user.username }}. Total: ₹ {{ order.total }}</p>
+<h3>Items</h3>
+<ul>
+  {% for it in items %}
+    <li>{{ it.quantity }} × {{ it.name }} — ₹ {{ it.price }}</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'shop:home' %}">Go to Home</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<p><a href="{% url 'shop:admin_add_pet' %}">Add new pet</a> | <a href="{% url 'shop:admin_orders' %}">View orders</a></p>
+<table class="admin-table">
+  <thead><tr><th>Name</th><th>Species</th><th>Price</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for pet in pets %}
+      <tr>
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.species }}</td>
+        <td>₹ {{ pet.price }}</td>
+        <td>
+          <a href="{% url 'shop:admin_edit_pet' pet.id %}">Edit</a> |
+          <a href="{% url 'shop:admin_delete_pet' pet.id %}">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
